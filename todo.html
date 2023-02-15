@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TO DO LIST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container" style="margin: auto; padding-top: 30px; width: 800px;">
+        <form id="listform" novalidate>
+            <div style="background-color: black; color: white;border-radius: 10px;height: 50px;display: flex;justify-content: space-around;align-items: center;">
+                <h1 style="width: 300px; margin-left: 300px;">to do list</h1>
+                <button class="btn btn-primary" id="back" style="height: 40px;"><a href="/todolist.html" style="height: 40px;text-decoration: none;color: white;width: 60px;">back to list</a></button>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">title<i style="color: red;">*</i></label>
+                <input type="text" class="form-control" id="formInput" placeholder="add title" required>
+                <div class="valid"><i  id="valid" style="color: green;">title enter successfully</i></div>
+                <div class="valid"><i  id="invalid" style="color: red;">please enter the title</i></div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Discription</label>
+                <textarea class="form-control" id="example" rows="3"></textarea>
+                
+            </div>
+            <div class="col-md-4">
+                <label for="inputStat" class="form-label">Status<i style="color: red;">*</i></label>
+                <select id="inputStat" class="form-select">
+                    <option value="1" id="inputstate1" selected>to do</option>
+                    <option value="2" id="inputstate">inprogress</option>
+                    <option value="3" id="inputstate2">completed</option>
+                </select>
+                <div class="valid"><i  id="dropdownvalid" style="color: green;">status entered successfully</i></div>
+                <div class="valid"><i  id="dropdowninvalid" style="color: red;">status enter required</i></div>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">start date<i style="color: red;">*</i></label>
+                <input type="date" class="form-control" id="startdate">
+                <div class="valid"><i  id="sdatevalid" style="color: green;">start date successfully added</i></div>
+                <div class="valid"><i  id="sdateinvalid" style="color: red;">please enter the start date</i></div>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">end date<i style="color: red;">*</i></label>
+                <input type="date" class="form-control" id="enddate">
+                <div class="valid"><i  id="edatevalid" style="color: green;">end date successfully added</i></div>
+                <div class="valid"><i  id="edateinvalid" style="color: red;">please enter the end date</i></div>
+                
+            </div>
+            <div style="margin-left: 300px;" class="col-12">
+                <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+
+                <button class="btn btn-primary" id="reset" type="submit">reset</button>
+            </div>
+
+        </form>
+
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+    <script src="/project.js"></script>
+    
+
+</html>
