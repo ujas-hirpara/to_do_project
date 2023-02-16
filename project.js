@@ -8,30 +8,18 @@ class data {
         this.enddate = enddate
     }
 }
-let valid = document.getElementById("valid")
 let invalid = document.getElementById("invalid")
+invalid.style.display = "none";
 
-valid.style.display = "none"
-
-invalid.style.display = "none"
-
-let dropdownvalid = document.getElementById("dropdownvalid")
 let dropdowninvalid = document.getElementById("dropdowninvalid")
-dropdownvalid.style.display = "none"
 
 dropdowninvalid.style.display = "none"
 
 
-let sdatevalid = document.getElementById("sdatevalid")
 let sdateinvalid = document.getElementById("sdateinvalid")
-sdatevalid.style.display = "none"
-
 sdateinvalid.style.display = "none"
 
-let edatevalid = document.getElementById("edatevalid")
 let edateinvalid = document.getElementById("edateinvalid")
-edatevalid.style.display = "none"
-
 edateinvalid.style.display = "none"
 
 
@@ -62,14 +50,10 @@ function formsubmit(e) {
 
     let list = localStorage.getItem("list");
 
-    let myobj;
-    if (list == null) {
-        myobj = [];
-    }
-    else {
+    let myobj = [];
+    if (list) {
         myobj = JSON.parse(list);
-    };
-
+    }
 
     if (title && enddate && startdate && state && enddate > startdate) {
         let bigdata = new data(title, discription, state, startdate, enddate)
@@ -82,22 +66,10 @@ function formsubmit(e) {
         }
         location.assign("/todolist.html")
     }
-    // else if(title && enddate && state && startdate == null){
-    //     alert("please enter the start date")
-    // }
-    // else if(title && startdate && state && enddate == null){
-    //     alert("please enter the end date")
-    // }
-    // else if(enddate && startdate && state && title == null){
-    //     alert("please enter the title")
-    // }
+    
     else if(enddate < startdate){
         alert("please enter a valid date")
     }
-    // else{
-    //     alert("please enter the required information")
-    // }
-
 
     if (title) {
 
@@ -151,9 +123,7 @@ function formsubmit(e) {
     localStorage.setItem("list", JSON.stringify(myobj));
     e.preventDefault();
     sessionStorage.clear()
-    // title = "";
-    // discription = "";
-    //    showlist();
+   
 }
 
 
@@ -163,7 +133,6 @@ document.getElementById("reset").addEventListener("click", function () {
     document.getElementById("startdate").value = ""
     document.getElementById("enddate").value = ""
 
-
 });
 
 
@@ -172,13 +141,10 @@ if (sessionStorage.getItem("list")) {
 
     document.getElementById("submit").innerHTML = "update"
 
-    let getobj;
+    let getobj = [];
     if (getlist) {
         getobj = JSON.parse(getlist);
     }
-    else {
-        getobj = [];
-    };
 
     console.log(getobj[getobj.length - 1])
 
@@ -197,9 +163,6 @@ if (sessionStorage.getItem("list")) {
     else if (getobj[getobj.length - 1].state == "completed") {
         document.getElementById("inputstate2").selected = true
     }
-
-
-
 
 }
 

@@ -1,15 +1,13 @@
 showlist();
 
-function showlist(e) {
+function showlist() {
 
     let list = localStorage.getItem("list");
-    let myobj;
-    if (list == null) {
-        myobj = [];
-    }
-    else {
+    let myobj = [];
+    if (list) {
         myobj = JSON.parse(list);
-    };
+    }
+    
     let tabletext = document.getElementById("tabletext");
     let html = "";
     myobj.forEach(function (element, index) {
@@ -26,51 +24,40 @@ function showlist(e) {
     });
 
     tabletext.innerHTML = html;
-    // e.preventDefault();
 }
 
 
 function deletes(index) {
-    let datadeletex = confirm("are you sure this data is delete")
+    const datadeletex = confirm("Are you sure want to delete this data!!")
+    
+    if(datadeletex){
+        let list = localStorage.getItem("list");
+        let myobj = [];
+        if (list) {
+            myobj = JSON.parse(list);
+        }
 
-  if(datadeletex){
-    let list = localStorage.getItem("list");
-    let myobj;
-    if (list == null) {
-        myobj = [];
+        myobj.splice(index, 1);
+        localStorage.setItem("list", JSON.stringify(myobj));
+        showlist();
     }
-    else {
-        myobj = JSON.parse(list);
-    };
-
-    myobj.splice(index, 1)
-    localStorage.setItem("list", JSON.stringify(myobj));
-    showlist();
-}
 };
 
 
 function edit(index) {
     let list = localStorage.getItem("list");
-    let myobj;
-    if (list == null) {
-        myobj = [];
-    }
-    else {
+    let myobj = [];
+    if (list) {
         myobj = JSON.parse(list);
-    };
-    console.log(myobj[index])
+    }
 
     let getlist = sessionStorage.getItem("list");
 
-    let getobj;
+    let getobj = [];
     if (getlist) {
         getobj = JSON.parse(getlist);
     }
-    else {
-        getobj = [];
-    }
-
+    
     getobj.push(myobj[index]);
 
     myobj.splice(index,1)
